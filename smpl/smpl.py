@@ -17,7 +17,7 @@ import pickle
 import numpy as np
 
 
-smpl = pickle._Unpickler(open("/Users/yang/models/basicmodel_f_lbs_10_207_0_v1.0.0.pkl", "rb"), encoding='latin1')
+smpl = pickle._Unpickler(open("basicmodel_f_lbs_10_207_0_v1.0.0.pkl", "rb"), encoding='latin1')
 smpl = smpl.load()      # smpl 是一个字典，关键的 key 如下：
 
 # J_regressor: (24, 6890), 与 vertices (6890, 3) 相乘边得到 joints 位置 (24, 3)
