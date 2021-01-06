@@ -5,6 +5,7 @@ $ sudo apt-get install libosmesa6-dev   # if linux
 $ pip3 install pyrender trimesh
 ```
 
+
 ## 使用说明
 
 ```bashrc
