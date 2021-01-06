@@ -1,1 +1,2 @@
 - [用 Python 手撸一个单目 Slam 的例子](monocular_slam/)
+- [实现人体动作捕捉与三维重建 smpl 模型](smpl)
