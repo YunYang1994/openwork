@@ -12,10 +12,9 @@
 #================================================================
 
 import cv2
-import util
+import utils
 import pickle
 import numpy as np
-
 
 smpl = pickle._Unpickler(open("basicmodel_f_lbs_10_207_0_v1.0.0.pkl", "rb"), encoding='latin1')
 smpl = smpl.load()      # smpl 是一个字典，关键的 key 如下：
@@ -39,14 +38,14 @@ poses = np.random.rand(72) * 0.20
 
 # 根据 betas 调整 T-pose, 计算 vertices
 v_shaped = smpl['shapedirs'].dot(betas) + smpl['v_template']
-# util.render(v_shaped, smpl['f'])
+# utils.render(v_shaped, smpl['f'])
 
 
 #============================ Part 3: 根据 poses 调整臀部的位置, 见论文 figure 3(c)
 
 J = smpl['J_regressor'].dot(v_shaped)     # 计算 T-pose 下 joints 位置
-v_posed = v_shaped + smpl['posedirs'].dot(util.posemap(poses))   # 计算受 pose 影响下调整臀部之后的 vertices
-# util.render(v_posed, smpl['f'])
+v_posed = v_shaped + smpl['posedirs'].dot(utils.posemap(poses))   # 计算受 pose 影响下调整臀部之后的 vertices
+# utils.render(v_posed, smpl['f'])
 
 #============================ Part 4: 计算受到 betas 和 pose 参数影响下的 transformed-pose, 见论文 figure 3(d)
 
@@ -138,4 +137,5 @@ v_posed_homo = np.vstack((v_posed.T, np.ones([1, v_posed.shape[0]])))
 # 权重 T 与顶点 v_posed_homo 相乘
 v = np.matmul(T, v_posed_homo.T.reshape([-1, 4, 1]))
 v = v.reshape([-1, 4])[:,:3]    # 由于是齐次矩阵，取前3列
-util.render(v, smpl['f'])
+utils.render(v, smpl['f'])
+
