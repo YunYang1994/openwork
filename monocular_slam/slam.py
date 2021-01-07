@@ -154,7 +154,7 @@ def fit_essential_matrix(match_kps):
     # 求解本质矩阵和内点数据
     model, inliers = ransac((norm_last_kps, norm_curr_kps),
                             EssentialMatrixTransform,
-                            min_samples=8,              # 最少需要 8 个点，否则得到超定矩阵
+                            min_samples=8,              # 最少需要 8 个点
                             residual_threshold=0.005,
                             max_trials=200)
 
