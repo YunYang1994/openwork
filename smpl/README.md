@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="50%" src="https://user-images.githubusercontent.com/30433053/104713363-bb8c2b80-575e-11eb-9712-0ae42bdb4a5b.jpg" style="max-width:100%;">
+    <img width="40%" src="https://user-images.githubusercontent.com/30433053/104713363-bb8c2b80-575e-11eb-9712-0ae42bdb4a5b.jpg" style="max-width:40%;">
 </p>
 
 ## 安装依赖
