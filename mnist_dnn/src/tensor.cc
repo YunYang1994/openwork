@@ -10,6 +10,7 @@
 *===============================================================*/
 
 #include <string>
+#include <cstring>
 #include <assert.h>
 #include "tensor.h"
 
@@ -31,7 +32,7 @@ Tensor::Tensor(float *ptr, int m, int n): rows(m), cols(n) {
 // 拷贝构造函数
 Tensor::Tensor (const Tensor & rhs): rows(rhs.rows), cols(rhs.cols) {
     data = new float[rows*cols];
-    memcpy(data, rhs.data, (rows*cols) * sizeof(float));
+    std::memcpy(data, rhs.data, (rows*cols) * sizeof(float));
 }
 
 // 赋值函数，将一个 Tensor 深拷贝给另一个已存在的 Tensor
@@ -43,7 +44,7 @@ Tensor& Tensor::operator=(const Tensor &rhs) {
         // 必须释放原有的内存，然后再重新申请一块内存
         delete[] data;
         data = new float[rows*cols];
-        memcpy(data, rhs.data, (rows*cols) * sizeof(float));
+        std::memcpy(data, rhs.data, (rows*cols) * sizeof(float));
     }
     return *this;
 }
@@ -108,7 +109,7 @@ Tensor Tensor::matmul(const Tensor & rhs) {
 // 返回该 Tensor 的副本
 Tensor Tensor::clone() {
     Tensor out(rows, cols);
-    memcpy(out.data, data, (rows*cols) * sizeof(float));
+    std::memcpy(out.data, data, (rows*cols) * sizeof(float));
     return out;
 }
 

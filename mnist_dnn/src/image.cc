@@ -10,6 +10,8 @@
 *===============================================================*/
 
 #include <assert.h>
+#include <cmath>
+#include <cstring>
 #include <iostream>
 #include "image.h"
 
@@ -28,7 +30,7 @@ Image::~Image() {
 // 拷贝构造函数，重新申请内存和拷贝数据
 Image::Image(const Image &rhs): rows(rhs.rows), cols(rhs.cols), channels(rhs.channels), size(rhs.size) {
     data = new float[size];
-    memcpy(data, rhs.data, rhs.size * sizeof(float));
+    std::memcpy(data, rhs.data, rhs.size * sizeof(float));
 };
 
 // 按照 [H, W, C] 返回索引像素值的引用
@@ -59,8 +61,8 @@ Image Image::resize(int w, int h) {
         for (int j=0; j<w; j++) {
             for (int k=0; k<channels; k++) {
                 // 根据这个比例，求出原图上对应的坐标 (ori, orj), 四舍五入求出最近像素
-                int ori = round(i * scale_h);
-                int orj = round(j * scale_w);
+                int ori = std::round(i * scale_h);
+                int orj = std::round(j * scale_w);
                 im.at(i, j, k) = (*this).at(ori, orj, k);
             }
         }

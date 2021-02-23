@@ -13,7 +13,7 @@ ARFLAGS=rcs
 OPTS=-Ofast
 LDFLAGS= -lm -pthread 
 COMMON= -Iinclude/ -Isrc/ 
-CFLAGS=-Wall -Wno-unknown-pragmas -Wfatal-errors -std=c++11
+CFLAGS=-Wall -fPIC -Wno-unknown-pragmas -Wfatal-errors -std=c++11
 
 EXOBJS = $(addprefix $(OBJDIR), $(EXOBJ))
 OBJS = $(addprefix $(OBJDIR), $(OBJ))

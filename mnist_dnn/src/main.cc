@@ -35,7 +35,7 @@ int main() {
     // std::cout << c[0][0] << " " << c[2][2] << std::endl;
     // std::cout << c[1][1] << " " << c[1][2] << std::endl;
 
-    auto d = loadMnistData("/Users/yangyun/", "/Users/yangyun/mnist/mnist.train");
+    auto d = loadMnistData("/home/yangyun1/", "/home/yangyun1/mnist/mnist.train");
     std::cout << d.X[12][12] << std::endl;
     std::cout << d.X.rows << std::endl;
     // imwrite("test.png", image);
