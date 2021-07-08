@@ -1,4 +1,4 @@
-- [博客地址：经典目标跟踪 sort 算法代码解析]
+- [Simple Online and Realtime Tracking](https://arxiv.org/abs/1602.00763)
 
 ### 安装依赖
 
